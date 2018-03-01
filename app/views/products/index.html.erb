@@ -1,44 +1,45 @@
 
-  <div id="page-wrapper">
+<div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">購物網站前台</h1>
-    </div>
-  <!-- /.row -->
-  <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-lg-3">
-        <div class="panel panel-default">
-          <div class="card">
-            <div class="content">
 
-              <div class="row">
-                <div class="col-xs-4">
-                  <%= image_tag product.image, class: "img-thumbnail" %>
-                </div>
-                <div class="col-xs-7">
-                  <div class="numbers"> 
-                    <p><b>Name:</b> <%= product.name %></p> 
-                    <p><b>Description:</b> <%= truncate product.description, length: 50 %></p>
-                    <p><b>Price:</b>NTD$: <%= product.price %></p>
-                  </div>
-                </div>
+    <div class="col-lg-9">
+      
+      <div class="row">
+        <% @products.each do |product| %>
+        <div class="card-columns">
+          <div class="card-deck col-lg-3">  
+            <div class="card">
+             <img class="card-img-top"><%= image_tag product.image, class: "img-thumbnail" %>
+              <div class="card-block">
+                <h5 class="card-title">
+                  <%= product.name %>
+                </h5>
+                <p>Price:</b>NTD$: <%= product.price %></p>
+                <p class="card-text"><%= truncate product.description, length: 25 %></p>
               </div>
-
-              <div class="footer">
-                <hr />
-                <div class="stats">
-                  <ul class="movie-icon">
-                  </ul>
-                </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Add to Cart</a>
               </div>
-
             </div>
           </div>
-        </div>            
-      <!-- /.panel -->
+        </div>
+         <% end %>
       </div>
-    <% end %>
-    <!-- /.row -->
+      
+    </div>
+     
+    <div class="col-lg-3">
+      <h1 class="my-4">Shop Cart</h1>
+        <div class="list-group">
+          <a href="#" class="list-group-item">Item 1</a>
+          <a href="#" class="list-group-item">Item 2</a>
+          <a href="#" class="list-group-item">Item 3</a>
+        </div>
+    </div>
+    <!-- /.col-lg-3 -->
   </div>
+  <!-- /.row -->
+  <%= paginate @products %>
 </div>
+
+

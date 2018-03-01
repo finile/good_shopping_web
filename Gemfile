@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'ffaker'
 gem 'jquery-rails'
+gem 'kaminari'
 
 
 group :development, :test do
