@@ -1,12 +1,32 @@
-<h1>購物網站後台</h1>
 
+<div class="container">
 
-<ul>
-  <% @products.each do |product| %>
-  <li>
-    <%= product.name %>
-    <%= product.description %>
-    <%= product.price %>
-  </li>
-  <% end %>
-</ul>
+  <h1>購物網站後台</h1>
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <br>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.description %></td>
+            <td>NTD$ <%= product.price %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</div>

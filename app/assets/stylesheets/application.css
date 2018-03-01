@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'style';
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+/*@import 'font-awesome-sprockets';*/
+@import 'font-awesome';
+@import 'themify-icons';
+
+
