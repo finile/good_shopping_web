@@ -5,7 +5,7 @@ namespace :dev do
     1000.times do |i|
       Product.create!(name: FFaker::Product.product_name,
         description: FFaker::Lorem::sentence(15),
-        price: "NTD: #{rand(1..1000)}",
+        price: rand(1..1000),
         image: FFaker::Avatar.image
       )
     end
