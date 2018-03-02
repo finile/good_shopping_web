@@ -11,28 +11,7 @@
       </div>
     </div>
      
-    <div class="col-lg-3">
-      <h1 class="my-4">Shop Cart</h1>
-        <div class="list-group">
-          <% current_cart.cart_items.each do |item| %>
-          <div class="cart-item product-<%= item.product.id %>">
-            <%= image_tag item.product.image %>
-              <div class="cart-item-info">
-                  <h3><%= item.product.name %></h3>
-                    $ <%= item.product.price %><br>
-                  <div class="cart-item-adjust">
-                    <span class="cart-<%= item.product.id %>-qty" ><%= item.quantity %></span>
-                  </div>
-              </div>
-          </div>
-          <% end %>
-        </div>
-        <hr>
-        <div class="subtotal">
-          <p>Subtotal</p>
-          <p class="ammount"><%= current_cart.subtotal %></p>          
-        </div>
-    </div>
+    <%= render "shared/cart" %>  
     <!-- /.col-lg-3 -->
   </div>
   <!-- /.row -->

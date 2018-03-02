@@ -17,9 +17,12 @@
         <td><%= item.product.name %></td>
         <td>$ <%= item.product.price %></td>
         <td class="cart-item-adjust">
+          <%= link_to '+', adjust_item_product_path(item.product, type: "add"), method: :post, remote: true %>
           <span class="cart-<%= item.product.id %>-qty" ><%= item.quantity %></span>
+          <%= link_to '-', adjust_item_product_path(item.product, type: "substract"), method: :post, remote: true %>
         </td>
         <td class="item-<%= item.product.id%>-total"><%= item.item_total %></td>
+        <td><%= link_to "Detele", remove_from_cart_product_path(item.product), method: :post, remote: true %></td>
       </tr>
     <% end %>
     <tr>
