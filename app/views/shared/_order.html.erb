@@ -31,27 +31,5 @@
       <td></td>
     </tr>
   </table>
-
- 
-  <%= form_for @order do |f| %>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
-
-    <%= f.label :phone, "Phone" %>
-    <%= f.text_field :phone %>
-
-    <%= f.label :address, "Address" %>
-    <%= f.text_field :address %>
-
-    <%= f.submit "Check Out", class: "btn"%>
-  <% end %>
-
-   <% if @order.errors.any? %>
-    <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= link_to 'Create Order', new_order_path %>
 </section>
-

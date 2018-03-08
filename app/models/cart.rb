@@ -1,6 +1,7 @@
 class Cart < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :products, through: :cart_items
+  has_many :orders
 
   def add_cart_item(product)
     existing_item = self.cart_items.find_by(product_id: product)

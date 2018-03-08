@@ -13,13 +13,51 @@ namespace :dev do
     puts "now you have #{Product.count} Product data"
   end
 
-  task fake_admin: :environment do
-    User.create(
-      email: "root1@example.com",
+  task fake_user: :environment do 
+    puts "Create fake users"
+    User.destroy_all
+
+    User.create!(email: "root@example.com",
       password: "12345678",
-      role: "admin"
-      )
+      role: "admin")
     puts "admin has created"
+
+    10.times do |i|
+      User.create!(
+        email: FFaker::Internet.email,
+        password: "12345678"
+        )
+    end
+    puts "now you have #{User.count} users record"
+  end
+
+  task fake_order: :environment do 
+    puts "Create fake orders"
+    Order.destroy_all
+    Cart.destroy_all
+
+    10. times do 
+      user = User.all.sample
+      cart = Cart.create!
+
+      rand(10).times do 
+        product = Product.all.sample
+        cart.add_cart_item(product)
+      end
+
+      order = Order.new(
+        sn: Time.now.to_i,
+        user_id: user.id,
+        amount: cart.subtotal,
+        name: user.email.split("@").first,
+        phone: FFaker::PhoneNumber.short_phone_number,
+        address: FFaker::Address.street_address
+      )
+      order.add_order_items(cart)
+      order.save!
+      cart.destroy  
+    end
+    puts "now you have #{Order.count} order record"
   end
 
 end

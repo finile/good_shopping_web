@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     root "products#index"
   end
 
-  resource :cart
+  resource :cart 
+  resources :orders
 
 end
