@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
       if @order.save
         current_cart.destroy
         session.delete(:new_order_data)
+        # UserMailer.notify_order_create(@order).deliver_now!
         flash[:notice] = "order was created"
         redirect_to orders_path
       else
