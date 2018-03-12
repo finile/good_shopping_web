@@ -1,4 +1,4 @@
-<section id="cart-list">
+<section id="cart-list" class="panel">
   <div>
     <h2>Shopping List</h2>
   </div>
@@ -31,27 +31,27 @@
       <td></td>
     </tr>
   </table>
-
- 
-  <%= form_for @order do |f| %>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
-
-    <%= f.label :phone, "Phone" %>
-    <%= f.text_field :phone %>
-
-    <%= f.label :address, "Address" %>
-    <%= f.text_field :address %>
-
-    <%= f.submit "Check Out", class: "btn"%>
-  <% end %>
-
-   <% if @order.errors.any? %>
-    <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
 </section>
 
+<%= render partial: "shared/form_error", locals: { object: @order }%>
+
+<%= form_for @order do |f| %>
+  <section class="panel">
+    <h2>Shpping Information</h2>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </div>
+      <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+      </div>
+  </section>
+
+  <%= f.submit "CHECKOUT", class: "btn" %>
+
+<% end %>

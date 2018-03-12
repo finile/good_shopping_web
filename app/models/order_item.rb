@@ -5,6 +5,4 @@ class OrderItem < ApplicationRecord
   def item_total
     self.quantity * self.product.price
   end
-
-
 end

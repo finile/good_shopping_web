@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
-
   def index
-    @products = Product.page(params[:page]).per(12)
+    @products = Product.page(params[:page]).per(50)
   end
 
   def show
@@ -33,6 +32,6 @@ class ProductsController < ApplicationController
     else
       cart_item.save
     end
-
+    
   end
 end
