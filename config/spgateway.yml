@@ -6,6 +6,7 @@ default: &default
   hash_key: TYiU1DmujbmURuMe0Htc6sep2Er4xD0L
   hash_iv: JhTNuxOHK7jDcZQQ
   url: https://ccore.spgateway.com/MPG/mpg_gateway
+  notify_url: http://requestbin.fullcontact.com/10iyqq01
 
 development:
   <<: *default
